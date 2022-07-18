@@ -8,3 +8,7 @@ fluxctl install \
 --git-path=namespaces,workloads \
 --namespace=flux | kubectl apply -f -
 ```
+
+```
+kubectl get pods --namespace=flux
+```
