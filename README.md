@@ -8,7 +8,12 @@ fluxctl install \
 --git-path=namespaces,workloads \
 --namespace=flux | kubectl apply -f -
 ```
-
 ```
 kubectl get pods --namespace=flux
 ```
+```
+fluxctl identity --k8s-fwd-ns flux
+```
+
+Copy the key to https://github.com/yalmashad/gitops/settings/keys
+Check the "Allow write access" box
