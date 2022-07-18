@@ -18,3 +18,8 @@ fluxctl identity --k8s-fwd-ns flux
 Copy the key to https://github.com/yalmashad/gitops/settings/keys
 
 Check the "Allow write access" box
+
+sync the cluster with the repository
+```
+fluxctl sync --k8s-fwd-ns flux
+```
