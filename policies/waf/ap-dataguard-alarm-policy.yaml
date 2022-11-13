@@ -1,0 +1,52 @@
+apiVersion: appprotect.f5.com/v1beta1
+kind: APPolicy
+metadata:
+  name: dataguard-alarm
+spec:
+  policy:
+    name: dataguard-alarm
+    template:
+      name: POLICY_TEMPLATE_NGINX_BASE
+    applicationLanguage: utf-8
+    enforcementMode: blocking
+    server-technologies:
+      - serverTechnologyName: Unix/Linux
+      - serverTechnologyName: Nginx
+      - serverTechnologyName: "Apache/NCSA HTTP Server"
+      - serverTechnologyName: PHP
+      - serverTechnologyName: JavaScript
+      - serverTechnologyName: PostgreSQL
+    blocking-settings:
+      violations:
+      - name: VIOL_DATA_GUARD
+        alarm: true
+        block: true
+    data-guard:
+      enabled: true
+      maskData: true
+      creditCardNumbers: true
+      usSocialSecurityNumbers: true
+      lastCcnDigitsToExpose: 4
+      lastSsnDigitsToExpose: 4
+      enforcementMode: ignore-urls-in-list
+      enforcementUrls: []
+    signature-requirements:
+    - tag: Fruits
+    signature-sets:
+    - name: apple_sigs
+      block: true
+      signatureSet:
+        filter:
+          tagValue: Fruits
+          tagFilter: eq
+    bot-defense:
+      settings:
+        isEnabled: true
+      mitigations:
+        classes:
+        - name: trusted-bot
+          action: alarm
+        - name: untrusted-bot
+          action: alarm
+        - name: malicious-bot
+          action: block
