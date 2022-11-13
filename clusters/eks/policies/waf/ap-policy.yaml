@@ -17,20 +17,6 @@ spec:
       - serverTechnologyName: PHP
       - serverTechnologyName: JavaScript
       - serverTechnologyName: PostgreSQL
-    blocking-settings:
-      violations:
-      - name: VIOL_DATA_GUARD
-        alarm: true
-        block: true
-    data-guard:
-      enabled: true
-      maskData: true
-      creditCardNumbers: true
-      usSocialSecurityNumbers: true
-      lastCcnDigitsToExpose: 4
-      lastSsnDigitsToExpose: 4
-      enforcementMode: ignore-urls-in-list
-      enforcementUrls: []
     signature-requirements:
     - tag: Fruits
     signature-sets:
