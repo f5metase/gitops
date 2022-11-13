@@ -9,7 +9,7 @@ spec:
     template:
       name: POLICY_TEMPLATE_NGINX_BASE
     applicationLanguage: utf-8
-    enforcementMode: blocking
+    enforcementMode: transparent
     server-technologies:
       - serverTechnologyName: Unix/Linux
       - serverTechnologyName: Nginx
